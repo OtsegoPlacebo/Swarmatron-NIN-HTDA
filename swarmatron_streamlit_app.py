@@ -1,6 +1,5 @@
 import numpy as np
 import streamlit as st
-import soundfile as sf
 import io
 
 st.set_page_config(page_title="Streamlit Swarmatron", page_icon="🎛️", layout="centered")
@@ -152,7 +151,6 @@ if st.button("Generate sound", type="primary"):
     )
 
     buffer = io.BytesIO()
-    sf.write(buffer, audio, SAMPLE_RATE, format="WAV")
     buffer.seek(0)
 
     st.audio(buffer, format="audio/wav")
